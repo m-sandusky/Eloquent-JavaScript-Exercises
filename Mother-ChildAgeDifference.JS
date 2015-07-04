@@ -7,7 +7,7 @@
    function plus(a,b){return a+b;}
    return array.reduce(plus)/array.length;
  }//function defined in ELoquent JavaScript that reduces and array, adds up the elements and thakes the average based on array length
- var ancestry = JSON.parse[ANCESTRY_FILE];
+ var ancestry = JSON.parse[ANCESTRY_FILE]; //parses the ANCESTRY_FILE string
 
  var byName = {};
  ancestry.forEach(function(person){
