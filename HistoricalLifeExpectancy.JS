@@ -44,3 +44,41 @@ console.log(groupedByCentury); //print object that has been mapped and reduced
 21:	94
 }
 */
+
+//second attempt
+
+function groupBy(array, grouping){
+  var grouped = {};
+  array.forEach(function(element){
+    var tempGroup = grouping(element);
+    if(tempGroup in grouped){
+      grouped[tempGroup].push(element);
+    } else {
+      grouped[tempGroup] = [element];
+    }
+  });
+  return grouped;
+}
+
+var grouped = groupBy(ancestry, function(person){
+  return Math.ceil(person.died/100);
+});
+
+for (var key in grouped){
+  grouped[key] = average(grouped[key].map(function(person){
+    return person.died - person.born;
+  }));
+};
+
+console.log(grouped);
+
+ /*expected output
+ {
+ 16:	43.5
+ 17:	51.2
+ 18:	52.78947368421053
+ 19:	54.833333333333336
+ 20:	84.66666666666667
+ 21:	94
+ }
+ */

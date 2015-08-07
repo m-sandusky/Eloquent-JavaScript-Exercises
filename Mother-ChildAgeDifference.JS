@@ -23,3 +23,13 @@
  }); //maps each element in the hasMother array by calculating the difference between the element's born value and the element's mother's born value
  console.log(average(difference); //displays the average of the diffrence in ages (by reducing the difference array and taking the average of the values)
 //expected output is ~31.2
+
+//condensed version
+var avgDiff = average(ancestry.filter(function(element){
+  return byName[element.mother] != null;
+}).map(function(element){
+  return element.born - byName[element.mother].born;;
+}));
+
+console.log(avgDiff);
+//-> ~31.2
